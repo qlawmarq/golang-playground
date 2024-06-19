@@ -1,0 +1,13 @@
+services:
+  go-app:
+    container_name: go-app
+    build:
+      context: .
+      dockerfile: ./Dockerfile.dev
+    volumes:
+      - ./:/app
+    # tty: true
+    # env_file:
+    #   - ./.go_env
+    ports:
+      - 8080:8080
