@@ -12,6 +12,8 @@ type person struct {
     Age  int
 }
 
+const GLOBAL_CONST string = "This is golang CONST"
+
 var (
 	TestString string = "Hello world!"
 	ToBe   bool       = false
@@ -23,10 +25,12 @@ func HowToUseVarsInGolang() {
 
 	// Basic
 	fmt.Println("---")
+	const localconst string = "local"
 	var i int = 42
 	var f float64 = float64(i)
 	var u uint = uint(f)
 	var s string = "Yo!"
+	fmt.Printf("Type: %T Value: %v\n", localconst, localconst)
 	fmt.Printf("Type: %T Value: %v\n", i, i)
 	fmt.Printf("Type: %T Value: %v\n", f, f)
 	fmt.Printf("Type: %T Value: %v\n", u, u)
@@ -65,4 +69,23 @@ func HowToUseVarsInGolang() {
 	fmt.Printf("Type: %T Value: %v\n", ToBe, ToBe)
 	fmt.Printf("Type: %T Value: %v\n", MaxInt, MaxInt)
 	fmt.Printf("Type: %T Value: %v\n", z, z)
+	fmt.Printf("Type: %T Value: %v\n", GLOBAL_CONST, GLOBAL_CONST)
+
+	// Array, Slice, Map
+	fmt.Println("---")
+	var myslice = []int{1,2,3}
+	// myslice := []int{1,2,3}
+	var myarr = [3]int{1,2,3}
+	var mymap = map[string]string{"brand": "Ford", "model": "Mustang", "year": "1964"}
+	fmt.Printf("Type: %T Value: %v\n", myslice, myslice)
+	fmt.Printf("Type: %T Value: %v\n", myarr, myarr)
+	fmt.Printf("Type: %T Value: %v\n", mymap, mymap)
+
+	// Func
+	fmt.Println("---")
+	print := fmt.Println
+	print("Test print function as vars")
+
+	fmt.Println("---")
+
 }

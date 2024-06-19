@@ -5,6 +5,18 @@ import (
     "time"
 )
 
+// https://www.w3schools.com/go/go_conditions.php
+
+func IsBiggerThan10(num int) bool {
+	var rtn bool
+	if num > 10 {
+		rtn = true
+	} else {
+		rtn = false
+	}
+	return rtn
+}
+
 func SayGreetingForCurrectTime() {
 	t := time.Now()
 	switch {

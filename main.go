@@ -41,7 +41,10 @@ func main() {
 		libs.Hello()
 		libs.HelloForEachNums(2)
 		libs.SayGreetingForCurrectTime()
+		var num int = 10
+		fmt.Printf("%v is bigger than 10: %v\n", num, libs.IsBiggerThan10(num))
 		libs.HowToUseVarsInGolang()
+		libs.HowToUseDatetime()
 		return c.JSON(http.StatusOK, commonResponse{Status: 200, Message: "Hello!"})
 	})
 		
