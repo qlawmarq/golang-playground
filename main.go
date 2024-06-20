@@ -7,6 +7,7 @@ import (
 
 	"github.com/labstack/echo/v4"
 	"github.com/labstack/echo/v4/middleware"
+	"github.com/slack-go/slack"
 
 	"playground/libs"
 )
@@ -47,7 +48,18 @@ func main() {
 		libs.HowToUseDatetime()
 		return c.JSON(http.StatusOK, commonResponse{Status: 200, Message: "Hello!"})
 	})
-		
+
+	e.GET("/slack", func(c echo.Context) error {
+		fmt.Println("/slack")
+		api := slack.New("")
+		user, err := api.GetUserPresence("")
+		if err != nil {
+			fmt.Printf("%s\n", err)
+			return c.JSON(http.StatusOK, commonResponse{Status: 200, Message: "OK"})
+		}
+		fmt.Printf("ID: %s, Fullname: %s, Email: %s\n", user.ID, user.Profile.RealName, user.Profile.Email)	
+		return c.JSON(http.StatusOK, commonResponse{Status: 200, Message: "OK"})
+	})
 
 	httpPort := os.Getenv("HTTP_PORT")
 	if httpPort == "" {
